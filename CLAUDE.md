@@ -155,8 +155,11 @@
   a whole page would be too small there. Checked when the document opens
   and when the window changes size; once the user pinches or double-taps
   (zoom changes while a gesture runs), their zoom stays. Turned back to
-  portrait, the width is filled again. `PdfViewerState.scrollToPage`
-  zooms to fill the width, so a whole page is shown with
+  portrait, the width is filled again, at the page that was in the middle
+  before (`shownPage`, saved): the view first shows the whole page small
+  in the tall window, where neither the reading line nor the middle
+  reliably falls on it (page 5 came back as 4, page 1 as 2).
+  `PdfViewerState.scrollToPage` zooms to fill the width, so a whole page is shown with
   `scrollToPosition` at its center instead (saved page, back from
   presentation mode). A double tap goes from the whole page to the width.
 - `PdfView` keeps the fast scroller always visible whenever any

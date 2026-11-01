@@ -136,6 +136,8 @@ internal fun DocumentView(
     // Saved, as the window changes size by recreating the activity.
     var isZoomedByUser by rememberSaveable { mutableStateOf(false) }
     var isPageFitted by rememberSaveable { mutableStateOf(false) }
+    // The page in the middle of the window, as shown before it changed size.
+    var shownPage by rememberSaveable { mutableStateOf<Int?>(null) }
     var isZoomChecked by remember { mutableStateOf(false) }
 
     LaunchedEffect(viewerState, searchState.matches, searchState.currentIndex) {
@@ -158,10 +160,14 @@ internal fun DocumentView(
         if (!isZoomChecked && !isZoomedByUser) {
             isZoomChecked = true
             // Before the jump to the saved page, so the cover waits for the pages at this zoom.
-            val page = pendingRestorePage ?: readingPosition.page()
+            val wasPageFitted = isPageFitted
+            // A whole page was shown in the middle. After rotating, the view shows it small in a
+            // tall window, where neither the reading line nor the middle reliably falls on it.
+            val page = pendingRestorePage
+                ?: shownPage.takeIf { wasPageFitted }
+                ?: readingPosition.page()
             val bottomPaddingPx = with(density) { contentPadding.calculateBottomPadding().toPx() }
             val height = viewportHeight - topPaddingPx - bottomPaddingPx
-            val wasPageFitted = isPageFitted
             isPageFitted = viewportWidth > viewportHeight &&
                 with(density) { viewportHeight.toDp() } >= FitPageMinHeight &&
                 fitPage(viewerState, documentState, page, viewportWidth, height)
@@ -190,6 +196,7 @@ internal fun DocumentView(
         snapshotFlow { viewerState.centerPage(viewportHeight) }
             .distinctUntilChanged()
             .collectLatest { page ->
+                shownPage = page
                 delay(PAGE_SAVE_DELAY_MS)
                 onPageChanged(page)
             }
