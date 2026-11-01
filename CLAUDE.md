@@ -147,7 +147,11 @@
   Don't add other feature checks: with the update, Android 14 behaves like
   15.
 - `PdfViewer` applies `contentPadding` only when its view is created,
-  which is why the top bar is laid over the document.
+  which is why the top bar is laid over the document. A recreated activity
+  (after rotating) creates the view before the status bar's inset is known,
+  so the pages started under the top bar; `ContentPadding` sets the view's
+  padding again whenever it changes (the view reads it as it lays out and
+  draws).
 - The viewer fills the width, except in a window wider than tall and at
   least 480 dp tall (a tablet in landscape): there it zooms out until the
   page being read fits between the bars, as filling the width showed only
@@ -726,11 +730,6 @@ Found in a review of the app in landscape (October 2026), not yet fixed:
 
 Found on a tablet emulator (`Medium_Tablet`, 1280×800 dp, October 2026):
 
-- After rotating (the activity is recreated), the document sits about a
-  status bar's height higher: its pages start under the top bar. Likely
-  the view is created before the status bar inset is known, and
-  `PdfViewer` applies `contentPadding` only then. Seen with fit-to-width
-  too, so not from fitting the page.
 - The scroll view never gets keyboard focus: arrow keys move focus to the
   top bar (Space then presses Back and closes the viewer), Page Down and
   Space don't scroll, and Ctrl+F doesn't open search. `PdfView` handles

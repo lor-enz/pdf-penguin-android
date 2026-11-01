@@ -269,6 +269,7 @@ internal fun DocumentView(
     }
 
     FastScrollAutoHide(contentLoaded = isContentLoaded)
+    ContentPadding(contentPadding)
     // Like the view's form filling, which is only enabled once the first pages have loaded.
     ChoiceFields(documentState.document, viewerState, isEnabled = isContentLoaded, onEdit = onFormEdit)
 
