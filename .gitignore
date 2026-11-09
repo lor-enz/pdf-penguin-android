@@ -36,3 +36,6 @@ google-services.json
 
 # Kotlin compiler cache
 .kotlin/
+
+# Obsidian (the vault in notes/): keep its settings, not the open tabs
+notes/.obsidian/workspace*.json

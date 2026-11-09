@@ -44,7 +44,7 @@ jobs:
       - name: Unit tests and lint
         run: ./gradlew testDebugUnitTest lintDebug
 
-      # R8 shrinks only the release version, and has broken it before (see CLAUDE.md)
+      # R8 shrinks only the release version, and has broken it before (see notes/release-and-build.md)
       - name: Release build
         run: ./gradlew assembleRelease
 
