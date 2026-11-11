@@ -22,3 +22,19 @@
   with TalkBack at all, and it can't be tested
   through adb (`input` taps and keys bypass TalkBack and reach the app
   as plain touches), only by hand.
+- No custom animation between Home and the viewer; back keeps Android's
+  predictive back. Tried (November 2026) a slide to the right without
+  zoom. Between two activities, Android shrinks the closing one to 90%
+  while the finger is down, also with a custom animation
+  (`overrideActivityTransition`), which only plays after release, and
+  nothing turns that off (`CustomCrossActivityBackAnimation`,
+  `MAX_SCALE`). With a custom close animation, Home also stays
+  full-screen behind the shrunk viewer instead of beside it, so the
+  gesture no longer shows where it lands. Apps that slide freely (Reverb,
+  Claude) are a single activity. Avoiding the zoom means drawing the
+  gesture in the app (a see-through viewer window, Home following it
+  through shared state, a `PredictiveBackHandler` that's always on) or
+  moving the viewer into Home's activity: built the first and it worked,
+  but it changed how the app runs for an animation. Growing the viewer out
+  of the tapped entry (`ActivityOptions.makeScaleUpAnimation`) and a
+  colored background behind the gesture were tried too, and not liked.

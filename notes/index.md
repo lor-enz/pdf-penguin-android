@@ -49,6 +49,7 @@ it). Read a feature's note before working on it.
 - [Release and build](release-and-build.md): the app's name, R8, releases,
   CI, signing.
 - [Decided against](decided-against.md): OCR, content for the assistant,
-  screen reader workarounds. Read before proposing anything like them.
+  screen reader workarounds, a custom back animation. Read before
+  proposing anything like them.
 - [Known issues](known-issues.md): found, not yet fixed.
 - [Planned changes](planned.md).
