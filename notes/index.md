@@ -50,6 +50,6 @@ it). Read a feature's note before working on it.
   CI, signing.
 - [Decided against](decided-against.md): OCR, content for the assistant,
   screen reader workarounds, a custom back animation, ideas for the recent
-  files list. Read before proposing anything like them.
+  files list, a list of all PDFs on the device. Read before proposing anything like them.
 - [Known issues](known-issues.md): found, not yet fixed.
 - [Planned changes](planned.md).

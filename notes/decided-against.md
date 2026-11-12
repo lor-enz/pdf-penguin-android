@@ -4,6 +4,18 @@
   (they'd clutter it more than help), no reading progress bar (not
   important enough), no ⋮ button on entries (long press opens their
   sheet), no large card for the most recent document and no grid view.
+- No list of all PDFs on the device (an "All files" tab on Home, considered
+  November 2026). The only way to list other apps' PDFs is all files
+  access (`MANAGE_EXTERNAL_STORAGE`): MediaStore shows an app only its own
+  documents (`READ_EXTERNAL_STORAGE` never covered them from Android 11
+  and does nothing from 13), and `DownloadManager` only its own downloads.
+  Google Play reviews that permission and may reject a PDF reader for it,
+  which rules it out; it would also be the app's first permission, and a
+  broad one (writing and deleting too). Folders granted through
+  `OPEN_DOCUMENT_TREE` need no permission, but Android 11+ refuses the
+  storage root and Download itself, where most PDFs land, and adding
+  folders is a setup step. The system picker (`OpenDocument`, limited to
+  PDFs) already lists them all, with search, sorting and cloud storage.
 - No OCR for scanned PDFs: the usual engine (ML Kit) needs Google Play
   Services, and Tesseract is too large. (`PdfViewer` does take an
   `ocrProvider`, should a suitable engine turn up.)
