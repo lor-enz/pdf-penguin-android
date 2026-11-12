@@ -7,7 +7,10 @@
   by 2 dp gaps) was tried and looked less good. Beside the 54×72 dp
   thumbnail: the title, the file name, then the page count and when it was
   last opened ("6 pages · 2 days ago"). The page last read isn't shown: the
-  viewer reopens there anyway.
+  viewer reopens there anyway. An entry with a filled-in form stored shows
+  Material's `edit_document` icon on the right, below the padlock: stacked,
+  the two take no more width than one, which the title needs. "Filled in"
+  as text in the details line was tried too.
 - Files opened from other apps lose their permission once closed, so the
   app keeps private copies for the recent files list. Cleanup (`CleanupRules`)
   has two limits, each chosen in Settings from a few presets, as no single

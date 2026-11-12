@@ -28,6 +28,7 @@ object TestTags {
     const val RECENT_FILE_NAME = "recent_file_name"
     const val RECENT_LOCKED = "recent_locked"
     const val RECENT_UNLOCKED = "recent_unlocked"
+    const val RECENT_FILLED = "recent_filled"
     const val RECENT_SHEET_TITLE = "recent_sheet_title"
     const val SHARE_RECENT = "share_recent"
     const val OPEN_WITH_RECENT = "open_with_recent"

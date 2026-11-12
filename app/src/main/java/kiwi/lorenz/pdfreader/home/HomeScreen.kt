@@ -434,16 +434,30 @@ private fun RecentFileRow(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
-        if (entry.isProtected) {
-            // Open when it opens without asking for the password.
-            val isRemembered = entry.encryptedPassword != null
+        if (entry.isProtected || entry.hasFilledVersion) {
             Spacer(Modifier.width(16.dp))
-            Icon(
-                painter = painterResource(if (isRemembered) R.drawable.lock_open_left else R.drawable.lock_closed),
-                contentDescription = stringResource(if (isRemembered) R.string.password_remembered else R.string.protected_pdf),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.testTag(if (isRemembered) TestTags.RECENT_UNLOCKED else TestTags.RECENT_LOCKED),
-            )
+            // Stacked, so both take no more width than one: it's needed for the title.
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                if (entry.isProtected) {
+                    // Open when it opens without asking for the password.
+                    val isRemembered = entry.encryptedPassword != null
+                    Icon(
+                        painter = painterResource(if (isRemembered) R.drawable.lock_open_left else R.drawable.lock_closed),
+                        contentDescription = stringResource(if (isRemembered) R.string.password_remembered else R.string.protected_pdf),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.testTag(if (isRemembered) TestTags.RECENT_UNLOCKED else TestTags.RECENT_LOCKED),
+                    )
+                }
+                if (entry.hasFilledVersion) {
+                    // A filled-in form is stored: it opens with what was entered.
+                    Icon(
+                        painter = painterResource(R.drawable.ic_edit_document),
+                        contentDescription = stringResource(R.string.filled_in),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.testTag(TestTags.RECENT_FILLED),
+                    )
+                }
+            }
         }
     }
 }

@@ -19,6 +19,7 @@
         <item quantity="other">%d Seiten</item>
     </plurals>
     <string name="recent_details">%1$s · %2$s</string>
+    <string name="filled_in">Ausgefüllt</string>
     <string name="forget_password">Passwort entfernen</string>
     <string name="remove_from_list">Aus der Liste entfernen</string>
     <string name="removed_from_list">Aus der Liste entfernt</string>
