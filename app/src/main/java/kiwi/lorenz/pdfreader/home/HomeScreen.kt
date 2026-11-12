@@ -499,7 +499,7 @@ private fun Thumbnail(entry: RecentFile, thumbnailFile: (RecentFile) -> File) {
     val shape = RoundedCornerShape(4.dp)
     Box(
         modifier = Modifier
-            .size(width = 48.dp, height = 64.dp)
+            .size(width = 54.dp, height = 72.dp)
             .clip(shape)
             .background(MaterialTheme.colorScheme.primaryContainer)
             .border(0.5.dp, MaterialTheme.colorScheme.outlineVariant, shape),

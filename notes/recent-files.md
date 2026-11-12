@@ -4,7 +4,9 @@
   the thin outline, doubled by the thumbnail's own, looked like a
   wireframe. Not the containers' Ice Blue (`surfaceContainer`), which made
   them look like the default app hint. A segmented list (one surface split
-  by 2 dp gaps) was tried and looked less good.
+  by 2 dp gaps) was tried and looked less good. Beside the 54×72 dp
+  thumbnail: the title, the file name, then the page last read and when it
+  was last opened.
 - Files opened from other apps lose their permission once closed, so the
   app keeps private copies for the recent files list. Cleanup (`CleanupRules`)
   has two limits, each chosen in Settings from a few presets, as no single
