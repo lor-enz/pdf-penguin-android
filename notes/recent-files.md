@@ -1,5 +1,10 @@
 # Recent files
 
+- Entries are cards filled in a grey (`LocalEntryColor`), without a border:
+  the thin outline, doubled by the thumbnail's own, looked like a
+  wireframe. Not the containers' Ice Blue (`surfaceContainer`), which made
+  them look like the default app hint. A segmented list (one surface split
+  by 2 dp gaps) was tried and looked less good.
 - Files opened from other apps lose their permission once closed, so the
   app keeps private copies for the recent files list. Cleanup (`CleanupRules`)
   has two limits, each chosen in Settings from a few presets, as no single

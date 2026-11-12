@@ -16,6 +16,7 @@ val ErrorOrange = Color(0xFFF46036)
 val Charcoal = Color(0xFF333333)
 val OffWhite = Color(0xFFF8FAFC)
 val Gallery = Color(0xFFEFEFEF)
+val Mist = Color(0xFFEBEFF3)
 
 val NightBackground = Color(0xFF14181C)
 val NightSurface = Color(0xFF1C2126)

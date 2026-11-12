@@ -1,5 +1,9 @@
 # Decided against
 
+- The recent files list (redesigned November 2026) has no date sections
+  (they'd clutter it more than help), no reading progress bar (not
+  important enough), no ⋮ button on entries (long press opens their
+  sheet), no large card for the most recent document and no grid view.
 - No OCR for scanned PDFs: the usual engine (ML Kit) needs Google Play
   Services, and Tesseract is too large. (`PdfViewer` does take an
   `ocrProvider`, should a suitable engine turn up.)

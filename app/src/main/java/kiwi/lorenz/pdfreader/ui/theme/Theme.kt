@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 
 // Every role a component may use is set, or it turns Material's default lavender: surface
 // containers (sheets, dialogs, menus), inverse colors (snackbars). Outline is for field borders,
-// outlineVariant for decorative ones (cards).
+// outlineVariant for decorative ones (thumbnails).
 private val LightColorScheme = lightColorScheme(
     primary = OceanBlue,
     onPrimary = OffWhite,
@@ -78,6 +78,12 @@ private val DarkColorScheme = darkColorScheme(
  */
 internal val LocalButtonColor = staticCompositionLocalOf { OceanBlue }
 
+/**
+ * The fill of the recent files entries: grey, as the containers' Ice Blue would make them look like
+ * the default app hint.
+ */
+val LocalEntryColor = staticCompositionLocalOf { Mist }
+
 // No dynamic (wallpaper) colors on purpose: the app is always blue.
 @Composable
 fun PdfPenguinTheme(
@@ -89,6 +95,10 @@ fun PdfPenguinTheme(
         typography = Typography,
         shapes = Shapes,
     ) {
-        CompositionLocalProvider(LocalButtonColor provides if (darkTheme) DeepBlue else OceanBlue, content = content)
+        CompositionLocalProvider(
+            LocalButtonColor provides if (darkTheme) DeepBlue else OceanBlue,
+            LocalEntryColor provides if (darkTheme) NightSurface else Mist,
+            content = content,
+        )
     }
 }

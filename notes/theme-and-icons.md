@@ -13,7 +13,9 @@
   (snackbars use the inverse colors; in presentation mode, whose background is
   `NightBackground` in both themes, they take dark mode's, or in light mode
   they'd vanish into it). `outline` is for field borders (3:1),
-  `outlineVariant` for cards. In dark mode bottom sheets are darker than the
+  `outlineVariant` for decorative ones (thumbnails). The recent files
+  entries are filled with Mist (`LocalEntryColor`), a grey tinted blue, in
+  dark mode `NightSurface`. In dark mode bottom sheets are darker than the
   background (`NightSheet` as `surfaceContainerLow`), in light mode they
   keep the background color.
 - The logo sources are in `logos-and-marketing-images/`. The themed icon's

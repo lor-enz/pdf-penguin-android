@@ -81,6 +81,7 @@ import kiwi.lorenz.pdfreader.ui.ContentMaxWidth
 import kiwi.lorenz.pdfreader.ui.MessageEffect
 import kiwi.lorenz.pdfreader.ui.SheetClosing
 import kiwi.lorenz.pdfreader.ui.TestTags
+import kiwi.lorenz.pdfreader.ui.theme.LocalEntryColor
 import kiwi.lorenz.pdfreader.ui.theme.PenguinBlue
 import kiwi.lorenz.pdfreader.ui.theme.PdfPenguinTheme
 import kiwi.lorenz.pdfreader.ui.theme.PrimaryButton
@@ -388,12 +389,11 @@ private fun RecentFileRow(
     onLongClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val shape = MaterialTheme.shapes.medium
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .clip(shape)
-            .border(0.5.dp, MaterialTheme.colorScheme.outlineVariant, shape)
+            .clip(MaterialTheme.shapes.medium)
+            .background(LocalEntryColor.current)
             .combinedClickable(
                 onClick = onClick,
                 onLongClick = onLongClick,
