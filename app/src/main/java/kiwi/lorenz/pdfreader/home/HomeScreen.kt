@@ -63,6 +63,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -535,8 +536,8 @@ private fun details(entry: RecentFile): String {
         ).toString()
     }
     if (entry.pageCount == 0) return opened
-    val page = stringResource(R.string.page_of, entry.lastPage + 1, entry.pageCount)
-    return stringResource(R.string.recent_details, page, opened)
+    val pages = pluralStringResource(R.plurals.page_count, entry.pageCount, entry.pageCount)
+    return stringResource(R.string.recent_details, pages, opened)
 }
 
 @Preview(showBackground = true)
